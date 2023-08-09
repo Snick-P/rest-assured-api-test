@@ -1,4 +1,4 @@
-package models.auth;
+package com.snickp.credit.models.auth;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;

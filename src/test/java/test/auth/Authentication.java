@@ -1,9 +1,10 @@
 package test.auth;
 
-import com.snickp.credit.spec.InitialStateSpec;
+import com.snickp.credit.spec.AuthSpec;
 import io.restassured.http.ContentType;
-import models.auth.LoginRequestDto;
-import models.auth.LoginResponseDto;
+import com.snickp.credit.models.auth.LoginRequestDto;
+import com.snickp.credit.models.auth.LoginResponseDto;
+import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
@@ -11,16 +12,15 @@ import static io.restassured.RestAssured.given;
 public class Authentication {
 
 
-
+    @Test
     public String accessToken(){
 
-        LoginRequestDto body = new LoginRequestDto();
-        body.setUsernameOrEmail("leanne");
-        body.setPassword("password");
+        LoginRequestDto authBody = new LoginRequestDto("leanne", "password");
 
-        LoginResponseDto loginResponse = step("Authorization in system",()-> given(InitialStateSpec.set())
+        LoginResponseDto loginResponse = step("Authorization in system by login "+authBody.getUsernameOrEmail(),
+                ()-> given(AuthSpec.set())
                 .contentType(ContentType.JSON)
-                .body(body)
+                .body(authBody)
                 .when()
                 .post("/auth/signin")
                 .then()

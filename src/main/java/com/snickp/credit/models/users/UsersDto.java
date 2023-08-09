@@ -1,4 +1,4 @@
-package models.users;
+package com.snickp.credit.models.users;
 
 import lombok.Data;
 

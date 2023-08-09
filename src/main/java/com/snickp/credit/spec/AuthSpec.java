@@ -6,7 +6,7 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 
 
-public class InitialStateSpec {
+public class AuthSpec {
 
 
     public static RequestSpecification set (){

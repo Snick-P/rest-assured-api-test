@@ -1,13 +1,14 @@
 package test.auth;
 
-import com.snickp.credit.spec.InitialStateSpec;
+import com.snickp.credit.models.auth.SingUpDataFactory;
+import com.snickp.credit.models.auth.SingUpResponseDto;
+import com.snickp.credit.spec.AuthSpec;
 import io.restassured.http.ContentType;
-import models.auth.SingUpRequestDto;
-import models.auth.SingUpResponseDto;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class SignUpTest {
 
@@ -16,17 +17,22 @@ public class SignUpTest {
 
     @Test
     public void SignUpTest() {
-        SingUpRequestDto signUpBody = new SingUpRequestDto();
+        var signUpBody = SingUpDataFactory.singUpRequest();
 
         SingUpResponseDto signUpResponse = step("Sing Up new user " + signUpBody.getUsername(), () ->
-                given(InitialStateSpec.set())
+                given(AuthSpec.set())
                         .contentType(ContentType.JSON)
                         .body(signUpBody)
                         .when()
                         .post("/auth/signup")
                         .then()
+                        .statusCode(201)
                         .extract().as(SingUpResponseDto.class));
 
-    }
+        step("Check Massage", () ->
+                assertThat(signUpResponse.getMessage().equals(true)));
+        step("Check Success", () ->
+                assertThat(signUpResponse.getSuccess().equals("User registered successfully")));
 
+    }
 }

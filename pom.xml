@@ -21,7 +21,7 @@
         <allure.version>2.23.0</allure.version>
         <allure-maven.version>2.12.0</allure-maven.version>
         <owner.version>1.0.12</owner.version>
-
+        <datafaker.version>2.0.1</datafaker.version>
 
 
         <commons-codec.version>1.16.0</commons-codec.version>
@@ -131,6 +131,12 @@
         <artifactId>commons-codec</artifactId>
         <version>${commons-codec.version}</version>
     </dependency>
+
+        <dependency>
+            <groupId>net.datafaker</groupId>
+            <artifactId>datafaker</artifactId>
+            <version>${datafaker.version}</version>
+        </dependency>
 
     </dependencies>
 

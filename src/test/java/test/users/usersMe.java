@@ -1,6 +1,6 @@
 package test.users;
 
-import models.users.UsersDto;
+import com.snickp.credit.models.users.UsersDto;
 import org.junit.jupiter.api.Test;
 import test.auth.Authentication;
 
