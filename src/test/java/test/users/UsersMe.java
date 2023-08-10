@@ -8,11 +8,10 @@ import static helpers.CustomAllureListener.withCustomTemplates;
 import static io.qameta.allure.Allure.step;
 import static io.restassured.RestAssured.given;
 
-public class usersMe {
+public class UsersMe {
 
 
     @Test
-
     public void userMe() {
        Authentication token = new Authentication();
 
@@ -23,7 +22,8 @@ public class usersMe {
                 .then()
                 .log().all()
                 .statusCode(200)
-                .extract().as(UsersDto.class));
+                .extract().as(UsersDto.class)
+        );
 
     }
 }
