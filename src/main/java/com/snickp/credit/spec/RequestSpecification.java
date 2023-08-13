@@ -3,13 +3,12 @@ package com.snickp.credit.spec;
 import com.snickp.credit.config.ConfigurationManager;
 import com.snickp.credit.helpers.CustomAllureListener;
 import io.restassured.builder.RequestSpecBuilder;
-import io.restassured.specification.RequestSpecification;
 
 
-public class AuthSpec {
+public class RequestSpecification {
 
 
-    public static RequestSpecification set (){
+    public static io.restassured.specification.RequestSpecification set (){
 
        var configuration = ConfigurationManager.getConfiguration();
 

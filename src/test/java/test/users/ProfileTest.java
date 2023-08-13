@@ -9,7 +9,7 @@ import static io.restassured.RestAssured.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-public class Profile {
+public class ProfileTest {
 
 @Test
     public void Profile (){

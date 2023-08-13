@@ -2,7 +2,7 @@ package test.auth;
 
 import com.snickp.credit.models.auth.SingUpDataFactory;
 import com.snickp.credit.models.auth.SingUpResponseDto;
-import com.snickp.credit.spec.AuthSpec;
+import com.snickp.credit.spec.RequestSpecification;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 
@@ -20,7 +20,7 @@ public class SignUpTest {
         var signUpBody = SingUpDataFactory.singUpRequest();
 
         SingUpResponseDto signUpResponse = step("Sing Up new user " + signUpBody.getUsername(), () ->
-                given(AuthSpec.set())
+                given(RequestSpecification.set())
                         .contentType(ContentType.JSON)
                         .body(signUpBody)
                         .when()
